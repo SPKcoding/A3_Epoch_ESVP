@@ -1,0 +1,3 @@
+7 "BIS_fnc_dynamictext" !="'f00'/> %1</t>",defineInfoMsg],0,1,5,1,0.15,789] spawn BIS_fnc_dynamicText};'"
+7 addEventHandler !="Fired"
+7 removeAllEventHandlers !="Fired"
