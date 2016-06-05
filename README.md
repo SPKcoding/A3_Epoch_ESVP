@@ -75,9 +75,31 @@ class CfgNotifications {
 * Open your `epoch.Mapname\epoch_config\Configs\CfgFunctions.hpp` and place the following `before` the last closing bracket:
 ```C++
 //ESVP
-#include "SPK_ESVP_cfgClient.hpp"
+class SPKcode_client {
+	tag = "SPK";
+	class SPK_ESVP {
+		file = "SPKcode\ESVP";
+		class initESVP {postInit=1;};
+	};
+};
 ```
-* Copy the file `epoch.Mapname\epoch_config\Configs\SPK_ESVP_cfgClient.hpp` from this package next to your CfgFunctions.hpp. Your: `epoch.Mapname\epoch_config\Configs\` folder
+	* If you already have a `class SPKcode_client` just add the `class SPK_ESVP` to it. Example like this:
+	```
+	class SPKcode_client {
+		tag = "SPK";
+		
+		class SPK_EXISTING_EXAMPLE {
+			file = "SPKcode\Example";
+			class example {};
+		};
+		
+		class SPK_ESVP {
+			file = "SPKcode\ESVP";
+			class initESVP {postInit=1;};
+		};
+		
+	};
+	```
 * Copy the folder `epoch.Mapname\SPKcode` from this package into the root of your `epoch.Mapname`
 * Open the file `epoch.Mapname\SPKcode\ESVP\config.sqf` in your mission and customize the client functions to your wishes. Read the self-explaining comments
 * Once you are ready with customization, repack your missionfile `epoch.Mapname` and upload it back to your server
