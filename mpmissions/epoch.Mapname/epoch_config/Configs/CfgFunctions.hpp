@@ -40,6 +40,12 @@ class cfgFunctions
 	};
 	
 	//ESVP
-	#include "SPK_ESVP_cfgClient.hpp"
+	class SPKcode_client {
+		tag = "SPK";
+		class SPK_ESVP {
+			file = "SPKcode\ESVP";
+			class initESVP {postInit=1;};
+		};
+	};
 	
 };
