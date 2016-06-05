@@ -84,7 +84,7 @@ class SPKcode_client {
 };
 ```
 * If you already have a `class SPKcode_client` just add the `class SPK_ESVP` to it. Example like this:
-```
+```C++
 class SPKcode_client {
 	tag = "SPK";
 
