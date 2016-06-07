@@ -5,6 +5,7 @@
 	_lotPos = getArray(configFile >> "CfgESVP" >> "_pLotArr");
 	if(getNumber(configFile >> "CfgESVP" >> "_clearAntags") isEqualTo 1)then{_coords spawn SPK_fnc_preventAntags};
 	if(getNumber(configFile >> "CfgESVP" >> "_useRestartVehTP") isEqualTo 1)then[{
+		if(getNumber(configFile >> "CfgESVP" >> "_unlockAfterVehTP") isEqualTo 1)then[{unlockAfterTP=true;unlockObj_ESVP = compileFinal "private '_this';_this setVehicleLock 'UNLOCKED'"},{unlockAfterTP=false}];
 		if(getNumber(configFile >> "CfgESVP" >> "_tpStyle") isEqualTo 0)then[{
 			{
 				_vehs = (_x select 0) nearEntities[["Car","Tank","Motorcycle","Air"],_x select 1];
@@ -12,6 +13,7 @@
 					_pos = [getPos _x,getNumber(configFile >> "CfgESVP" >> "_tpRangeMin"),getNumber(configFile >> "CfgESVP" >> "_tpRangeMax"),3,0,50,0] call BIS_fnc_findSafePos;
 					_x allowDamage false;
 					_x setPos _pos;
+					if(unlockAfterTP)then{_x call unlockObj_ESVP};
 					_x allowDamage true;
 					_x call EPOCH_server_save_vehicle
 				}forEach _vehs;
@@ -27,6 +29,7 @@
 						}];
 						_x allowDamage false;
 						_x setPos newWaterPos;
+						if(unlockAfterTP)then{_x call unlockObj_ESVP};
 						_x allowDamage true;
 						_x call EPOCH_server_save_vehicle
 					}forEach shipESVP
@@ -60,6 +63,7 @@
 								_actVeh = selectRandom vehsESVP;
 								_actVeh allowDamage false;
 								_actVeh setPos _newPos;
+								if(unlockAfterTP)then{_actVeh call unlockObj_ESVP};
 								_actVeh setDir 0;
 								_actVeh allowDamage true;
 								_actVeh call EPOCH_server_save_vehicle
@@ -78,6 +82,7 @@
 							}];
 							_x allowDamage false;
 							_x setPos newWaterPos;
+							if(unlockAfterTP)then{_x call unlockObj_ESVP};
 							_x allowDamage true;
 							_x call EPOCH_server_save_vehicle
 						}forEach shipESVP
