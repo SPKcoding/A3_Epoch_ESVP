@@ -3,7 +3,7 @@
 - Title: `SPK_ESVP`
 - Author: `Sp4rkY` [Link](https://github.com/SPKcoding)
 - Description: `Extended Safezones with Vehicle Protection for Arma 3 Epoch`
-- Version: `0.432`
+- Version: `0.436`
 - Required: `Arma 3 1.60+ / Epoch 0.3.8+`
 - Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| Chiller (Thx for thoughts & testing!)`<br/>
 
@@ -19,24 +19,20 @@ ___
 - (optional) Teleport vehicles out of safezones at server restart to:
 	* (optional) a given distance from the respective safezone
 	* (optional) a static parking place (you can use your own map addition and define as many parking lots you want)
-	* (optional) Restricted vehicle´s access in safezones (only the owner(s) can enter the vehicle)
-	* (optional) Restricted vehicle´s gear-access in safezones (only the owner(s) can access the vehicle´s inventory)
-	* (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
-	
-	* If using the serverside "vehicle teleporting WITHOUT Parking Place" - function: 
-		* the vehicles get teleported to a random position within the given radius out of the safezones
-	
-	* If using the serverside "vehicle teleporting WITH Parking Place" - function, it will works like this:
-		* server restarts, vehicles in safezones will be teleported to a parking place
-		* vehicles which are present at the parking place are getting teleported to a random location on the map, new vehicles (in safezones) are ported to the parking place
-
-	* If the respective safezone contains water, ships are treated like this:
-		* if ships are located at water surface, they gets teleported close to the safezone´s shore at given radius
-		* if ships are located at terrain surface because of lifting or simliar, they gets ported random at the maps shore
-
-	* If not using "vehicle teleporting" - function, remaining vehicles in safezones are indestructible after restart
-
-	* If you only want to use the vehicle teleport functions, let the missionfile untouched and only use the serverside pbo and ofcourse customize the settings
+* (optional) Restricted vehicle´s access in safezones (only the owner(s) can enter the vehicle)
+* (optional) Restricted vehicle´s gear-access in safezones (only the owner(s) can access the vehicle´s inventory)
+* (optional) Unlock teleported vehicles
+* (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
+* If using the serverside "vehicle teleporting WITHOUT Parking Place" - function: 
+	* the vehicles get teleported to a random position within the given radius out of the safezones
+* If using the serverside "vehicle teleporting WITH Parking Place" - function, it will works like this:
+	* server restarts, vehicles in safezones will be teleported to a parking place
+	* vehicles which are present at the parking place are getting teleported to a random location on the map, new vehicles (in safezones) are ported to the parking place
+* If the respective safezone contains water, ships are treated like this:
+	* if ships are located at water surface, they gets teleported close to the safezone´s shore at given radius
+	* if ships are located at terrain surface because of lifting or simliar, they gets ported random at the maps shore
+* If not using "vehicle teleporting" - function, remaining vehicles in safezones are indestructible after restart
+* If you only want to use the vehicle teleport functions, let the missionfile untouched and only use the serverside pbo and ofcourse customize the settings
 <br/>
 
 ___
@@ -199,6 +195,7 @@ ___
 ######W.I.P:
 - integrate support for Tow/Lift
 - drop-down menu for vehicle owners to give access to specific players
+- option to automatically unlock owned vehicles after they are teleported
 <br/>
 
 ___
