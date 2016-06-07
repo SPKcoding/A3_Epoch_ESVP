@@ -7,6 +7,7 @@
 _______________________________________________________________________________________________________________________________________________________________________________________________ */
 
 
+
 _useRestartVehTP	= 1;								/* Enable/Disable Teleporting of vehicles out of safezones at serverstart (0: disabled | 1: enabled)									*/
 
 _tpStyle			= 0;								/* Variant of teleporting (0: Teleport x-meters out of safezones [_tpRangeMin & _tpRangeMax] | 1: Teleport to static parking place)		*/
