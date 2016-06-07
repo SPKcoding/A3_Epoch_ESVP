@@ -3,7 +3,7 @@ class CfgPatches {
 		requiredAddons[] = {"A3_epoch_server"};
 		fileName = "epoch_SPK_ESVP.pbo";
 		requiredVersion = 1.60;
-		version = "0.432";
+		version = "0.436";
 		author[]= {"Sp4rkY"};
 	};
 };
