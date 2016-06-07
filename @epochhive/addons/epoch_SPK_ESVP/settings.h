@@ -2,8 +2,9 @@
 	Title:			SPK_ESVP
 	Author: 		Sp4rkY [https://github.com/SPKcoding]
 	Description:	Extended Safezones with Vehicle Protection for Arma 3 Epoch
+	Version:		0.436
 	File:			settings.h (serverside config)
-________________________________________________________________________________ */
+_______________________________________________________________________________________________________________________________________________________________________________________________ */
 
 
 _useRestartVehTP	= 1;								/* Enable/Disable Teleporting of vehicles out of safezones at serverstart (0: disabled | 1: enabled)									*/
@@ -18,6 +19,8 @@ _safezoneCoords[] 	= {									/* Define your safezones here. (no comma after th
 						{{18461.1,14269.3,0},250},
 						{{10929.8,7623.15,0},250}
 };
+
+_unlockAfterVehTP	= 1;								/* Set lock state of teleported vehicles (0: no changes | 1: unlocked)																	*/
 
 _clearAntags		= 1;								/* Enable/Disable removing of antagonists (UAV, Sappers, Snakes, Cultists) in safezones (0: disabled | 1: enabled)						*/
 _antagClasses[]		= {									/* Classnames of antagonists you want to block in safezones (no comma after the last entry)												*/
