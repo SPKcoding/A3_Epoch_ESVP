@@ -195,7 +195,6 @@ ___
 ######W.I.P:
 - integrate support for Tow/Lift
 - drop-down menu for vehicle owners to give access to specific players
-- option to automatically unlock owned vehicles after they are teleported
 <br/>
 
 ___
