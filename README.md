@@ -3,7 +3,7 @@
 - Title: `SPK_ESVP`
 - Author: `Sp4rkY` [Link](https://github.com/SPKcoding)
 - Description: `Extended Safezones with Vehicle Protection for Arma 3 Epoch`
-- Version: `0.436`
+- Version: `0.443`
 - Required: `Arma 3 1.60+ / Epoch 0.3.8+`
 - Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| Chiller (Thx for thoughts & testing!)`<br/>
 
@@ -23,6 +23,7 @@ ___
 * (optional) Restricted vehicle´s gear-access in safezones (only the owner(s) can access the vehicle´s inventory)
 * (optional) Unlock teleported vehicles
 * (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
+* (optional) Prohibite chopping trees while in safezones
 * If using the serverside "vehicle teleporting WITHOUT Parking Place" - function: 
 	* the vehicles get teleported to a random position within the given radius out of the safezones
 * If using the serverside "vehicle teleporting WITH Parking Place" - function, it will works like this:
@@ -98,6 +99,7 @@ class SPKcode_client {
 ```
 * Copy the folder `epoch.Mapname\SPKcode` from this package into the root of your `epoch.Mapname`
 * Open the file `epoch.Mapname\SPKcode\ESVP\config.sqf` in your mission and customize the client functions to your wishes. Read the self-explaining comments
+* If you wish to prohibit chopping trees while in safezones, copy the file `epoch.Mapname\epoch_code\compile\functions\EPOCH_fnc_playerFired.sqf` to the same directory in your missionfile (overwrite the existing one)
 * Once you are ready with customization, repack your missionfile `epoch.Mapname` and upload it back to your server
 
 <br/>
