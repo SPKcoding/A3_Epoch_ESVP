@@ -126,7 +126,7 @@ _BATTLEYE:_
 * Open your `scripts.txt` (usually found in "SC\BattlEye\")<br/>
 * Search for the keyword:
 ```
-7 "BIS_fnc_dynamictext"
+"BIS_fnc_dynamictext"
 ```
 * add the following filter to the beginning, right after the keyword, like this:
 ```
@@ -134,19 +134,27 @@ _BATTLEYE:_
 ```
 * Search for the keyword:
 ```
-7 addEventHandler
+addEventHandler
 ```
 * add the following filter to the beginning, right after the keyword, like this:
 ```
-7 addEventHandler !="Fired"
+7 addEventHandler !="EH_firedESVP"
 ```
 * Search for the keyword:
 ```
-7 removeAllEventHandlers
+removeAllEventHandlers
 ```
 * add the following filter to the beginning, right after the keyword, like this:
 ```
-7 removeAllEventHandlers !="Fired"
+7 removeAllEventHandlers !="HandleDamage"
+```
+* Search for the keyword:
+```
+removeEventHandler
+```
+* add the following filter to the beginning, right after the keyword, like this:
+```
+7 removeEventHandler !="EH_firedESVP"
 ```
 * Open your `setvariable.txt` (same directory)<br/>
 * Add the following filter to the beginning, like this:
