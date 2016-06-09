@@ -4,14 +4,14 @@
 	isESVP=false;
 	addProtPlr = compileFinal "
 		player allowDamage false;
-		EH_firedESVP = player addEventHandler ['Fired',{deleteVehicle (_this select 6)}];
-		player addEventHandler ['HandleDamage',{false}];
+		EH_firedESVP = player addEventHandler['Fired',{deleteVehicle (_this select 6)}];
+		EH_handleDmgESVP = player addEventHandler['HandleDamage',{false}];
 		plrProtAdded = true
 	";
 	remProtPlr = compileFinal "
 		player allowDamage true;
 		player removeEventHandler['Fired',EH_firedESVP];
-		player removeAllEventHandlers 'HandleDamage';
+		player removeEventHandler['HandleDamage',EH_handleDmgESVP];
 		plrProtAdded = nil
 	";
 	showMsg = {[format["<t shadow='1' size='0.75' shadowColor='#000000' color='#ff0000'><img size='0.75' shadowColor='#000000' image='SPKcode\ESVP\lock.paa' color='#ffff00'/> %1</t>",defineInfoMsg],0,1,5,1,0.15,789] spawn BIS_fnc_dynamicText};
