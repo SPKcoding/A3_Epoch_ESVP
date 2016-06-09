@@ -4,13 +4,13 @@
 	isESVP=false;
 	addProtPlr = compileFinal "
 		player allowDamage false;
-		player addEventHandler ['Fired',{deleteVehicle (_this select 6)}];
+		EH_firedESVP = player addEventHandler ['Fired',{deleteVehicle (_this select 6)}];
 		player addEventHandler ['HandleDamage',{false}];
 		plrProtAdded = true
 	";
 	remProtPlr = compileFinal "
 		player allowDamage true;
-		player removeAllEventHandlers 'Fired';
+		player removeEventHandler['Fired',EH_firedESVP];
 		player removeAllEventHandlers 'HandleDamage';
 		plrProtAdded = nil
 	";
