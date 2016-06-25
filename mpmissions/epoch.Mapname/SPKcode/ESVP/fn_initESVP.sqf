@@ -66,6 +66,7 @@
 	secondCheck = compileFinal "
 		while{_this select 0}do{
 			if(isESVP && (vehicle player != player))then{
+				if(isNil'plrProtAdded')then{call addProtPlr};
 				vehicle player addEventHandler['Fired',{deleteVehicle (_this select 6)}];
 				vehicle player addEventHandler['HandleDamage',{false}];
 				if(useVehProt)then{if(_this select 1)then{true spawn addProtVeh}}
