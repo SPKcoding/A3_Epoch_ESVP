@@ -1,6 +1,9 @@
 ####Changelog
 <br/>
 
+`v0.444`<br/>
+	* [fixed] if entered a safezone with a vehicle, you can get killed from a player standing outside of the zone<br/>
+<br/>
 `v0.443`<br/>
 	* [fixed] issue with chopping trees after leaving a safezone (thx to ReDBaroN for noticing this bug)<br/>
 	* [added] (optional) prohibit players to chop trees while in safezones (EPOCH_fnc_playerFired.sqf / check instructions in README.md)<br/>
