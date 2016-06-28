@@ -106,7 +106,18 @@ class SPKcode_client {
 
 _EPOCH STOCK ANTIHACK:_
 <br/>
-- No needed changes detected right now
+* Open `@epochhive\addons\a3_epoch_server_settings\configs\security\security_checks.h` and change this:
+```C++
+class addEventHandler {
+	checks[] = {"Fired","InventoryClosed","InventoryOpened","Killed","HandleDamage","HandleHeal","Dammaged","Hit","HitPart"};
+};
+```
+to this:
+```
+class addEventHandler {
+	checks[] = {"InventoryClosed","InventoryOpened","Killed","HandleHeal","Dammaged","Hit","HitPart"};
+};
+```
 
 <br/>
 
