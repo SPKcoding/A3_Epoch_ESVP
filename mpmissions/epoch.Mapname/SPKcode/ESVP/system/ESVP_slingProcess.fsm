@@ -1,0 +1,204 @@
+/*%FSM<COMPILE "D:\__INSTALLED_GAMES__\_STEAM_\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, ESVP_slingProcess">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-25.000000,-500.000000,75.000000,-450.000000,0.000000,"START"};
+item1[] = {"true",8,218,-25.000000,-425.000000,75.000000,-375.000000,0.000000,"true"};
+item2[] = {"PROCESS",2,250,-25.000000,-350.000000,75.000000,-300.000000,0.000000,"PROCESS"};
+item3[] = {"enter",4,218,-125.000000,-275.000000,-25.000000,-225.000000,0.000000,"enter"};
+item4[] = {"exited_chopper",4,218,75.000000,-275.000000,175.000000,-225.000000,0.000000,"exited" \n "chopper"};
+item5[] = {"get_object",2,4346,-25.000000,-200.000000,75.000000,-150.000000,0.000000,"get" \n "object"};
+item6[] = {"soldier",4,218,-25.000000,-275.000000,75.000000,-225.000000,0.000000,"soldier"};
+item7[] = {"leave",4,218,-150.000000,-200.000000,-50.000000,-150.000000,0.000000,"leave"};
+item8[] = {"clean_object",2,250,-275.000000,-200.000000,-175.000000,-150.000000,0.000000,"clean" \n "object"};
+item9[] = {"true",4,218,-275.000000,-350.000000,-175.000000,-300.000000,0.000000,"true"};
+item10[] = {"killed",8,218,100.000000,-200.000000,200.000000,-150.000000,0.000000,"killed"};
+item11[] = {"DEATH",1,250,225.000000,-200.000000,325.000000,-150.000000,0.000000,"DEATH"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,5};
+link4[] = {4,2};
+link5[] = {5,4};
+link6[] = {5,6};
+link7[] = {5,7};
+link8[] = {5,10};
+link9[] = {6,2};
+link10[] = {7,8};
+link11[] = {8,9};
+link12[] = {9,2};
+link13[] = {10,11};
+globals[] = {25.000000,1,0,0,0,640,480,1,13,6316128,1,-622.075195,644.619751,164.522949,-666.408813,1404,921,1};
+window[] = {2,-1,-1,-1,-1,942,175,1615,175,3,1422};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "ESVP_slingProcess";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = ;
+                        init = /*%FSM<STATEINIT""">*/"if(isNil'ESVP_codeDone')then{ESVP_codeDone=false};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="PROCESS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"ESVP_codeDone"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "PROCESS">*/
+                class PROCESS
+                {
+                        name = "PROCESS";
+                        itemno = ;
+                        init = /*%FSM<STATEINIT""">*/"//process"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "enter">*/
+                                class enter
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="get_object";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isESVP && vehicle player isKindOf ""Air"" && !isNull(getSlingLoad vehicle player)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "get_object">*/
+                class get_object
+                {
+                        name = "get_object";
+                        itemno = ;
+                        init = /*%FSM<STATEINIT""">*/"private _veh = vehicle player;" \n
+                         "vehProtOwners = [];" \n
+                         "{" \n
+                         "	private '_crew';" \n
+                         "	_crew = getPlayerUID _x;" \n
+                         "	vehProtOwners pushBack _crew" \n
+                         "}forEach crew _veh;" \n
+                         "_veh setVariable['vehOwners',vehProtOwners,true];" \n
+                         "" \n
+                         "diag_log format[""SZ: _veh ownervariable: %1"",_veh getVariable[""vehOwners"",nil]];" \n
+                         "" \n
+                         "_slingObj = getSlingLoad vehicle player;" \n
+                         "_slingObj addEventHandler['Fired',{deleteVehicle (_this select 6)}];" \n
+                         "_slingObj addEventHandler['HandleDamage',{false}];" \n
+                         "_slingObj setVariable['vehOwners',vehProtOwners,true];" \n
+                         "" \n
+                         "diag_log format[""SZ: _slingObj: %1"",_slingObj];" \n
+                         "diag_log format[""SZ: _slingObj variable: %1"",_slingObj getVariable[""vehOwners"",nil]];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "soldier">*/
+                                class soldier
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="PROCESS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isESVP && (vehicle player == player)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "leave">*/
+                                class leave
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="clean_object";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isESVP && vehicle player isKindOf ""Air"" && !isNull(getSlingLoad vehicle player)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "killed">*/
+                                class killed
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="DEATH";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive player"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "exited_chopper">*/
+                                class exited_chopper
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="PROCESS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isESVP && (vehicle player == player)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "clean_object">*/
+                class clean_object
+                {
+                        name = "clean_object";
+                        itemno = ;
+                        init = /*%FSM<STATEINIT""">*/"_slingObj = getSlingLoad vehicle player;" \n
+                         "_slingObj removeAllEventHandlers 'Fired';" \n
+                         "_slingObj removeAllEventHandlers 'HandleDamage';" \n
+                         "" \n
+                         "private _var = _slingObj getVariable['vehOwners',nil];" \n
+                         "if(!isNil'_var')then{_slingObj setVariable['vehOwners',nil,true]};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "true">*/
+                                class true
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="PROCESS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "DEATH">*/
+                class DEATH
+                {
+                        name = "DEATH";
+                        itemno = ;
+                        init = /*%FSM<STATEINIT""">*/"ESVP_codeDone = false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "DEATH",
+        };
+};
+/*%FSM</COMPILE>*/
