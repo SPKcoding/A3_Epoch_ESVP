@@ -1,6 +1,7 @@
 [] spawn {
 	waitUntil{if(isNil"EPOCH_LoadingScreenDone")then[{uiSleep 0.5;false},{true}]};
 	#include "config.sqf"
+	ESVP_codeDone = false;
 	isESVP=false;
 	addProtPlr = compileFinal "
 		player allowDamage false;
@@ -14,7 +15,7 @@
 		player removeEventHandler['HandleDamage',EH_handleDmgESVP];
 		plrProtAdded = nil
 	";
-	showMsg = {[format["<t shadow='1' size='0.75' shadowColor='#000000' color='#ff0000'><img size='0.75' shadowColor='#000000' image='SPKcode\ESVP\lock.paa' color='#ffff00'/> %1</t>",defineInfoMsg],0,1,5,1,0.15,789] spawn BIS_fnc_dynamicText};
+	showMsg = {[format["<t shadow='1' size='0.75' shadowColor='#000000' color='#ff0000'><img size='0.75' shadowColor='#000000' image='SPKcode\ESVP\img\lock.paa' color='#ffff00'/> %1</t>",defineInfoMsg],0,1,5,1,0.15,789] spawn BIS_fnc_dynamicText};
 	accessCheck = compileFinal "
 		loadedAccessCheckESVP = true;
 		while{true}do{
@@ -108,5 +109,9 @@
 		_zone setTriggerActivation['ANY','PRESENT',true];
 		_zone setTriggerStatements["(vehicle player) in thisList","isESVP=true;if(showNotesESVP)then{true spawn showNoteESVP};if(showSystemchatESVP)then{systemChat format['%1 %2',chatMsgEnter," + str ((_defineSafezones select _t)select 0) + "]};if(useInfoMsg)then{call showMsg};","isESVP=false;if(showNotesESVP)then{false spawn showNoteESVP};if(showSystemchatESVP)then{systemChat format['%1 %2',chatMsgLeave," + str ((_defineSafezones select _t)select 0) + "]};"];
 	};
-	[] spawn firstCheck
+	[] spawn firstCheck;
+	ESVP_codeDone = true;
+	if(useVehLifted)then{
+		execFSM "SPKcode\ESVP\system\ESVP_slingProcess.fsm"
+	}
 };
