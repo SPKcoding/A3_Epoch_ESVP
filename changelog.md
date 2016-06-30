@@ -1,6 +1,10 @@
 ####Changelog
 <br/>
 
+`v0.502`<br/>
+	* [added] (optional) owner check for lifted vehicles (they also are protected now)<br/>
+	* [added] new variable in clientside config.sqf (useVehLifted [true|false] recommended is true)<br/>
+<br/>
 `v0.444`<br/>
 	* [fixed] if entered a safezone with a vehicle, you can get killed from a player standing outside of the zone<br/>
 <br/>
