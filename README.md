@@ -3,7 +3,7 @@
 - Title: `SPK_ESVP`
 - Author: `Sp4rkY` [Link](https://github.com/SPKcoding)
 - Description: `Extended Safezones with Vehicle Protection for Arma 3 Epoch`
-- Version: `0.444`
+- Version: `0.502`
 - Required: `Arma 3 1.60+ / Epoch 0.3.8+`
 - Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| Chiller (Thx for thoughts & testing!)`<br/>
 
@@ -21,6 +21,7 @@ ___
 	* (optional) a static parking place (you can use your own map addition and define as many parking lots you want)
 * (optional) Restricted vehicle´s access in safezones (only the owner(s) can enter the vehicle)
 * (optional) Restricted vehicle´s gear-access in safezones (only the owner(s) can access the vehicle´s inventory)
+* (optional) Protection for lifted vehicle´s
 * (optional) Unlock teleported vehicles
 * (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
 * (optional) Prohibite chopping trees while in safezones
@@ -214,7 +215,6 @@ ___
 <br/>
 
 ######W.I.P:
-- integrate support for Tow/Lift
 - drop-down menu for vehicle owners to give access to specific players
 <br/>
 
