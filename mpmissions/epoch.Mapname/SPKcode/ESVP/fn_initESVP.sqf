@@ -17,12 +17,17 @@
 	";
 	showMsg = {[format["<t shadow='1' size='0.75' shadowColor='#000000' color='#ff0000'><img size='0.75' shadowColor='#000000' image='SPKcode\ESVP\img\lock.paa' color='#ffff00'/> %1</t>",defineInfoMsg],0,1,5,1,0.15,789] spawn BIS_fnc_dynamicText};
 	accessCheck = compileFinal "
+		accessCheckEject = {
+			waitUntil{if(vehicle player == player)then{uiSleep .2;false}else{true}};
+			_var = vehicle player getVariable['vehOwners',nil];
+			if(!isNil'_var')then{if !(getPlayerUID player in _var)then{player Action['GetOut',vehicle player];closeDialog 0}}
+		};
 		loadedAccessCheckESVP = true;
 		while{true}do{
 			waitUntil{if({if(cursorTarget isKindOf _x)exitWith{1}}count['Car','Air','Motorcycle','Tank'] == 0)then{uiSleep .2;false};if(({if(cursorTarget isKindOf _x)exitWith{1}}count['Car','Air','Motorcycle','Tank'] == 1) || !isESVP)then{true}};
 			if(!isESVP)exitWith{loadedAccessCheckESVP = false};
 			_var = cursorTarget getVariable['vehOwners',nil];
-			if(!isNil'_var')then{if !(getPlayerUID player in _var)then{cursorTarget lock true;uiSleep .1;cursorTarget lock true}};
+			if(!isNil'_var')then{if !(getPlayerUID player in _var)then{cursorTarget lock true;uiSleep .1;cursorTarget lock true;[] spawn accessCheckEject}};
 			waitUntil{if(locked cursorTarget isEqualTo 0)then[{uiSleep .2;false},{if((locked cursorTarget isEqualTo 1) || !isESVP)then{true}}]};
 			if(!isESVP)exitWith{loadedAccessCheckESVP = false}
 		}
