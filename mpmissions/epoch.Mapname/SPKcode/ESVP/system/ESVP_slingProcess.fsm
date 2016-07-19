@@ -1,34 +1,45 @@
 /*%FSM<COMPILE "D:\__INSTALLED_GAMES__\_STEAM_\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, ESVP_slingProcess">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"START",0,250,-25.000000,-500.000000,75.000000,-450.000000,0.000000,"START"};
-item1[] = {"true",8,218,-25.000000,-425.000000,75.000000,-375.000000,0.000000,"true"};
+item0[] = {"START",0,250,225.000000,-350.000000,325.000000,-300.000000,0.000000,"START"};
+item1[] = {"true",8,218,100.000000,-350.000000,200.000000,-300.000000,0.000000,"true"};
 item2[] = {"PROCESS",2,250,-25.000000,-350.000000,75.000000,-300.000000,0.000000,"PROCESS"};
-item3[] = {"enter",4,218,-125.000000,-275.000000,-25.000000,-225.000000,0.000000,"enter"};
-item4[] = {"exited_chopper",4,218,75.000000,-275.000000,175.000000,-225.000000,0.000000,"exited" \n "chopper"};
-item5[] = {"get_object",2,4346,-25.000000,-200.000000,75.000000,-150.000000,0.000000,"get" \n "object"};
-item6[] = {"soldier",4,218,-25.000000,-275.000000,75.000000,-225.000000,0.000000,"soldier"};
-item7[] = {"leave",4,218,-150.000000,-200.000000,-50.000000,-150.000000,0.000000,"leave"};
-item8[] = {"clean_object",2,250,-275.000000,-200.000000,-175.000000,-150.000000,0.000000,"clean" \n "object"};
-item9[] = {"true",4,218,-275.000000,-350.000000,-175.000000,-300.000000,0.000000,"true"};
-item10[] = {"killed",8,218,100.000000,-200.000000,200.000000,-150.000000,0.000000,"killed"};
-item11[] = {"DEATH",1,250,225.000000,-200.000000,325.000000,-150.000000,0.000000,"DEATH"};
+item3[] = {"has_load",4,218,-75.000000,-275.000000,25.000000,-225.000000,0.000000,"has" \n "load"};
+item4[] = {"loop",4,218,25.000000,-275.000000,125.000000,-225.000000,0.000000,"loop"};
+item5[] = {"get_object",2,250,-25.000000,-200.000000,75.000000,-150.000000,0.000000,"get" \n "object"};
+item6[] = {"leave",4,218,-200.000000,-200.000000,-100.000000,-150.000000,0.000000,"leave"};
+item7[] = {"clean_object",2,250,-200.000000,-275.000000,-100.000000,-225.000000,0.000000,"clean" \n "object"};
+item8[] = {"loop",4,218,-200.000000,-350.000000,-100.000000,-300.000000,0.000000,"loop"};
+item9[] = {"killed",8,218,100.000000,-200.000000,200.000000,-150.000000,0.000000,"killed"};
+item10[] = {"DEATH",1,250,225.000000,-200.000000,325.000000,-150.000000,0.000000,"DEATH"};
+item11[] = {"no_load",4,218,-150.000000,-425.000000,-50.000000,-375.000000,0.000000,"no" \n "load"};
+item12[] = {"wait_for_conditi",2,250,-150.000000,-500.000000,-50.000000,-450.000000,0.000000,"wait" \n "for" \n "condition"};
+item13[] = {"loop",4,218,-25.000000,-425.000000,75.000000,-375.000000,0.000000,"loop"};
+item14[] = {"has_load",4,218,-25.000000,-500.000000,75.000000,-450.000000,0.000000,"has" \n "load"};
+item15[] = {"check_owner",2,250,100.000000,-500.000000,200.000000,-450.000000,0.000000,"check" \n "owner"};
+item16[] = {"loop",4,218,100.000000,-425.000000,200.000000,-375.000000,0.000000,"loop"};
 link0[] = {0,1};
 link1[] = {1,2};
 link2[] = {2,3};
-link3[] = {3,5};
-link4[] = {4,2};
-link5[] = {5,4};
-link6[] = {5,6};
-link7[] = {5,7};
-link8[] = {5,10};
-link9[] = {6,2};
+link3[] = {2,11};
+link4[] = {3,5};
+link5[] = {4,2};
+link6[] = {5,4};
+link7[] = {5,6};
+link8[] = {5,9};
+link9[] = {6,7};
 link10[] = {7,8};
-link11[] = {8,9};
-link12[] = {9,2};
-link13[] = {10,11};
-globals[] = {25.000000,1,0,0,0,640,480,1,13,6316128,1,-622.075195,644.619751,164.522949,-666.408813,1404,921,1};
-window[] = {2,-1,-1,-1,-1,942,175,1615,175,3,1422};
+link11[] = {8,2};
+link12[] = {9,10};
+link13[] = {11,12};
+link14[] = {12,13};
+link15[] = {12,14};
+link16[] = {13,2};
+link17[] = {14,15};
+link18[] = {15,16};
+link19[] = {16,2};
+globals[] = {25.000000,1,0,0,0,640,480,1,24,6316128,1,-600.421997,666.272949,39.117310,-791.817383,1404,921,1};
+window[] = {2,-1,-1,-1,-1,1017,250,1690,250,3,1422};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -67,8 +78,19 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "enter">*/
-                                class enter
+                                /*%FSM<LINK "no_load">*/
+                                class no_load
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="wait_for_conditi";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isESVP && vehicle player isKindOf ""Air"" && isNull(getSlingLoad vehicle player)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "has_load">*/
+                                class has_load
                                 {
                                         itemno = ;
                                         priority = 0.000000;
@@ -94,30 +116,13 @@ class FSM
                          "	vehProtOwners pushBack _crew" \n
                          "}forEach crew _veh;" \n
                          "_veh setVariable['vehOwners',vehProtOwners,true];" \n
-                         "" \n
-                         "diag_log format[""SZ: _veh ownervariable: %1"",_veh getVariable[""vehOwners"",nil]];" \n
-                         "" \n
                          "_slingObj = getSlingLoad vehicle player;" \n
                          "_slingObj addEventHandler['Fired',{deleteVehicle (_this select 6)}];" \n
                          "_slingObj addEventHandler['HandleDamage',{false}];" \n
-                         "_slingObj setVariable['vehOwners',vehProtOwners,true];" \n
-                         "" \n
-                         "diag_log format[""SZ: _slingObj: %1"",_slingObj];" \n
-                         "diag_log format[""SZ: _slingObj variable: %1"",_slingObj getVariable[""vehOwners"",nil]];"/*%FSM</STATEINIT""">*/;
+                         "_slingObj setVariable['vehOwners',vehProtOwners,true];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "soldier">*/
-                                class soldier
-                                {
-                                        itemno = ;
-                                        priority = 0.000000;
-                                        to="PROCESS";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!isESVP && (vehicle player == player)"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
                                 /*%FSM<LINK "leave">*/
                                 class leave
                                 {
@@ -140,14 +145,14 @@ class FSM
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "exited_chopper">*/
-                                class exited_chopper
+                                /*%FSM<LINK "loop">*/
+                                class loop
                                 {
                                         itemno = ;
                                         priority = 0.000000;
                                         to="PROCESS";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"isESVP && (vehicle player == player)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isESVP && (vehicle player == player))||(!isESVP && (vehicle player == player))"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -168,8 +173,8 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "true">*/
-                                class true
+                                /*%FSM<LINK "loop">*/
+                                class loop
                                 {
                                         itemno = ;
                                         priority = 0.000000;
@@ -191,6 +196,69 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "wait_for_conditi">*/
+                class wait_for_conditi
+                {
+                        name = "wait_for_conditi";
+                        itemno = ;
+                        init = /*%FSM<STATEINIT""">*/"//wait"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "has_load">*/
+                                class has_load
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="check_owner";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isESVP && vehicle player isKindOf ""Air"" && !isNull(getSlingLoad vehicle player)"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "loop">*/
+                                class loop
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="PROCESS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isESVP && (vehicle player == player))||(!isESVP && (vehicle player == player))"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "check_owner">*/
+                class check_owner
+                {
+                        name = "check_owner";
+                        itemno = ;
+                        init = /*%FSM<STATEINIT""">*/"_slingObj = getSlingLoad vehicle player;" \n
+                         "_slingVar = _slingObj getVariable['vehOwners',nil];" \n
+                         "if(!isNil'_slingVar')then{" \n
+                         "	if !(getPlayerUID player in _slingVar)then{" \n
+                         "		{ropeDestroy _x}foreach ropes vehicle player;" \n
+                         "	};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "loop">*/
+                                class loop
+                                {
+                                        itemno = ;
+                                        priority = 0.000000;
+                                        to="PROCESS";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
                         };
                 };
                 /*%FSM</STATE>*/
