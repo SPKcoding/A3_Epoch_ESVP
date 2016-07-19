@@ -1,6 +1,10 @@
 ####Changelog
 <br/>
 
+`v0.564`<br/>
+	* [fixed] issue where fresh-spawns are able to steal a not-owned vehicle in half a second<br/>
+	* [added] if using the "lifted vehicles protection", there will also be a check for the owners, so stealing is not possible<br/>
+<br/>
 `v0.502`<br/>
 	* [added] (optional) owner check for lifted vehicles (they also are protected now)<br/>
 	* [added] new variable in clientside config.sqf (useVehLifted [true|false] recommended is true)<br/>
