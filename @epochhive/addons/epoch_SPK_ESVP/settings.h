@@ -2,36 +2,37 @@
 	Title:			SPK_ESVP
 	Author: 		Sp4rkY [https://github.com/SPKcoding]
 	Description:	Extended Safezones with Vehicle Protection for Arma 3 Epoch
-	Version:		0.564
+	Version:		0.89
+	Required:		Arma 3 1.66+ / Epoch 0.4+
 	File:			settings.h (serverside config)
 _______________________________________________________________________________________________________________________________________________________________________________________________ */
 
 
-
 _useRestartVehTP	= 1;								/* Enable/Disable Teleporting of vehicles out of safezones at serverstart (0: disabled | 1: enabled)									*/
-
 _tpStyle			= 0;								/* Variant of teleporting (0: Teleport x-meters out of safezones [_tpRangeMin & _tpRangeMax] | 1: Teleport to static parking place)		*/
-_tpRangeMin			= 300;								/* Minimum range (not needed if _tpStyle = 1)																							*/
-_tpRangeMax			= 450;								/* Maximum range (not needed if _tpStyle = 1)																							*/
-
+_tpRangeMin			= 200;								/* Minimum range (not needed if _tpStyle = 1)																							*/
+_tpRangeMax			= 350;								/* Maximum range (not needed if _tpStyle = 1)																							*/
 _safezoneCoords[] 	= {									/* Define your safezones here. (no comma after the last entry | !!! HAS TO BE THE SAME AS CLIENTSIDE CONFIG !!!)						*/
-						{{6190.38,16842.4,0},250},		/* {{x,y,z}, radius} 																													*/
-						{{13335.2,14508.6,0},250},
-						{{18461.1,14269.3,0},250},
-						{{10929.8,7623.15,0},250}
+						{{6190.38,16842.4,0}, 250},		/* {{x,y,z}, radius} 																													*/
+						{{13335.2,14508.6,0}, 250},
+						{{18461.1,14269.3,0}, 250}
 };
-
 _unlockAfterVehTP	= 1;								/* Set lock state of teleported vehicles (0: no changes | 1: unlocked)																	*/
-
 _clearAntags		= 1;								/* Enable/Disable removing of antagonists (UAV, Sappers, Snakes, Cultists) in safezones (0: disabled | 1: enabled)						*/
-_antagClasses[]		= {									/* Classnames of antagonists you want to block in safezones (no comma after the last entry)												*/
+_antagClasses[]		= {									/* Classnames of antagonists you want to clear in safezones (no comma after the last entry)												*/
 						"I_UAV_01_F",
 						"Epoch_SapperB_F",
 						"Epoch_Sapper_F",
 						"Snake_Random_EPOCH",
-						"Epoch_Cloak_F"
+						"Epoch_Cloak_F",
+						"GreatWhite_F",
+						"PHANTOM",
+						"EPOCH_RyanZombie_1",
+						"EPOCH_RyanZombie_2",
+						"EPOCH_RyanZombie_3",
+						"EPOCH_RyanZombie_4",
+						"EPOCH_RyanZombie_5"
 };
-
 _checkWater			= 1;								/* Enable/Disable check for ships/boats in the safezones (0: disabled | 1: enabled) [should be set to 0 if using a map without water] 	*/
 
 /***   Below only needed if _tpStyle = 1 is used   ***/
@@ -41,6 +42,7 @@ _pPlaceCoords[] 	= {23373.018,17737.408,3.1900001};	/* {x,y,z} Coordinates of Pa
 
 _pPlaceSize			= 300;								/* Size of Parking Place Marker	(radius)																								*/
 _pPlaceMrkText		= "Global Parking Place";			/* Markertext of Parking Place map-marker																								*/
+_pPlaceVehDir		= 0;								/* Direction of all ported vehicles in every parking lot (Number)																		*/
 
 _pLotArr[]			= {									/* Array with coordinates of Parking Lots (NO COMMA AFTER THE LAST ENTRY)																*/
 						{23226.6,17551.3,0},			/* {x,y,z} coords of "Land_HelipadEmpty_F"																								*/
@@ -104,3 +106,5 @@ _pLotArr[]			= {									/* Array with coordinates of Parking Lots (NO COMMA AFT
 						{23465,17708.5,0},
 						{23463.6,17738.4,0}
 };
+
+_debugLog			= false;							/* Speaks for itself, right? (serverside RPT-log) [recommended: false, use it only if you have to]										*/
