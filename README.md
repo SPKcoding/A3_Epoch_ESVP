@@ -5,7 +5,7 @@
 - Description: `Extended Safezones with Vehicle Protection for Arma 3 Epoch`
 - Version: `0.89`
 - Required: `Arma 3 1.66+ / Epoch 0.4+`
-- Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| Chiller (Thx for thoughts & testing!)`<br/>
+- Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| CH!LL3R (Thx for thoughts & testing!)`<br/>
 
 ___
 <br/>
