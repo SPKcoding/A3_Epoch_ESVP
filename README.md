@@ -3,8 +3,8 @@
 - Title: `SPK_ESVP`
 - Author: `Sp4rkY` [Link](https://github.com/SPKcoding)
 - Description: `Extended Safezones with Vehicle Protection for Arma 3 Epoch`
-- Version: `0.564`
-- Required: `Arma 3 1.62+ / Epoch 0.3.9+`
+- Version: `0.89`
+- Required: `Arma 3 1.66+ / Epoch 0.4+`
 - Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| Chiller (Thx for thoughts & testing!)`<br/>
 
 ___
@@ -15,7 +15,10 @@ ___
 - Works for players and vehicles
 - No more `"ProtectionZone_Invisible_F"` is needed (usually found in map config in a3_epoch_server_settings.pbo)
 - Fired bullets will automatically be deleted in safezones
+- (optional) Teleport players out of safezones after restart
+- (optional) Teleport players away from the parking place (if used) after restart
 - Protection from idiots trying to drive over other players (including traders)
+- Check vehicle ownership of bought vehicles
 - (optional) Teleport vehicles out of safezones at server restart to:
 	* (optional) a given distance from the respective safezone
 	* (optional) a static parking place (you can use your own map addition and define as many parking lots you want)
@@ -24,8 +27,16 @@ ___
 * (optional) Protection for lifted vehicle´s
 	* If using this feature, there will be also a check for the owner, so stealing is not possible
 * (optional) Unlock teleported vehicles
+* 2 ways of info messages (depends on if vehicle protection is used or not)
+* (optional) Vehicle Access Menu:
+	* "Refresh" button to update the player-list while menu is open
+	* "Registered" listing to see which players are added to your vehicle
+	* "Clear" button to remove the added players
+* (optional) restrict access to driver seat for primary vehicle owner
+* slingload check for bought vehicles (you can not steal cars or ships)
+* (optional) info messages for prohibited lifting
 * (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
-* (optional) Prohibite chopping trees while in safezones
+* (optional) Allow/disallow to chop/sledge/chainsaw anything in safezones
 * If using the serverside "vehicle teleporting WITHOUT Parking Place" - function: 
 	* the vehicles get teleported to a random position within the given radius out of the safezones
 * If using the serverside "vehicle teleporting WITH Parking Place" - function, it will works like this:
@@ -35,7 +46,7 @@ ___
 	* if ships are located at water surface, they gets teleported close to the safezone´s shore at given radius
 	* if ships are located at terrain surface because of lifting or simliar, they gets ported random at the maps shore
 * If not using "vehicle teleporting" - function, remaining vehicles in safezones are indestructible after restart
-* If you only want to use the vehicle teleport functions, let the missionfile untouched and only use the serverside pbo and ofcourse customize the settings
+* Debug option for better determine errors (client & server)
 <br/>
 
 ___
@@ -51,11 +62,15 @@ ___
 _SERVER:_
 <br/>
 * Go to the downloaded folder `@epochhive\addons\epoch_SPK_ESVP\`
-* Use your favourite text/C++ editor, open the `settings.h` and customize it to your wishes (every option should be self-explaining by looking at the comments)
+* Use your favourite text/C++ editor, open the `settings.h` and customize it to your wishes (every option should be self-explaining by looking at their comments)
 * Save the file
 * Open `epoch_SPK_ESVP.pbo` with your PBO-Manager & delete all files in it
 * Copy & Paste all files of the `epoch_SPK_ESVP` folder into the `epoch_SPK_ESVP.pbo`
 * Upload this PBO to your servers `@epochhive\addons\` folder
+<br/>
+* New way of enabling SPKcode scripts:
+* Upload the `epoch_SPKcode_config.pbo` also to your servers `@epochhive\addons\` folder
+* At the moment there is no need to cange anything in this PBO, just upload it and you are good to go. (will be updated as soon as more scripts are available)
 
 <br/>
 
@@ -66,60 +81,24 @@ _CLIENT:_
 * Download and unPbo your `epoch.Mapname.pbo` ("Mapname" depends on which map you use (example: epoch.Altis.pbo))
 * Open your `epoch.Mapname\description.ext` and place the following at the bottom:
 ```C++
-//ESVP
-class CfgNotifications {
-	#include "SPKcode\ESVP\notifications.h"
-};
+#include "SPKcode\config.cpp"
 ```
 * Open your `epoch.Mapname\epoch_config\Configs\CfgFunctions.hpp` and place the following `before` the last closing bracket:
 ```C++
-//ESVP
-class SPKcode_client {
-	tag = "SPK";
-	class SPK_ESVP {
-		file = "SPKcode\ESVP";
-		class initESVP {postInit=1;};
-	};
-};
+#include "SPK_CfgFunctions.hpp"
 ```
-* If you already have a `class SPKcode_client` just add the `class SPK_ESVP` to it. Example like this:
-```C++
-class SPKcode_client {
-	tag = "SPK";
-
-	class SPK_EXISTING_EXAMPLE {
-		file = "SPKcode\Example";
-		class example {};
-	};
-
-	class SPK_ESVP {
-		file = "SPKcode\ESVP";
-		class initESVP {postInit=1;};
-	};
-
-};
-```
+* Copy the file `epoch.Mapname\epoch_config\Configs\SPK_CfgFunctions.hpp` to the same directory in your missionfile
+* Copy the file `epoch.Mapname\epoch_config\Configs\CfgRemoteExec.hpp` to the same directory in your missionfile (overwrite the existing one)
+	* it´s prepared for Epoch 0.4 (if you already have custom changes in it, just merge it)
+* Copy the file `epoch.Mapname\epoch_config\Configs\SPK_CfgRemoteExec.hpp` to the same directory in your missionfile
+* If you already have a `class CfgNotifications` anywhere in your missionfile, just open the file `epoch.Mapname\SPKcode\config.cpp` and comment out the line `#include "notes.h"` with `//` 
+	* after that merge the content of `epoch.Mapname\SPKcode\notes.h` with your existing `class CfgNotifications`
+* If you wish to prohibit using of melee weapons while in safezones, copy the file `epoch.Mapname\epoch_code\compile\functions\EPOCH_fnc_playerFired.sqf` to the same directory in your missionfile (overwrite the existing one)
+	* it´s prepared for Epoch 0.4 (if you already have custom changes in it, just merge it)
 * Copy the folder `epoch.Mapname\SPKcode` from this package into the root of your `epoch.Mapname`
-* Open the file `epoch.Mapname\SPKcode\ESVP\config.sqf` in your mission and customize the client functions to your wishes. Read the self-explaining comments
-* If you wish to prohibit chopping trees while in safezones, copy the file `epoch.Mapname\epoch_code\compile\functions\EPOCH_fnc_playerFired.sqf` to the same directory in your missionfile (overwrite the existing one)
+* Open the file `epoch.Mapname\SPKcode\ESVP\config.cpp` in your mission and customize the client functions to your wishes. Read the self-explaining comments
 * Once you are ready with customization, repack your missionfile `epoch.Mapname` and upload it back to your server
-
 <br/>
-
-_EPOCH STOCK ANTIHACK:_
-<br/>
-* Open `@epochhive\addons\a3_epoch_server_settings\configs\security\security_checks.h` and change this:
-```C++
-class addEventHandler {
-	checks[] = {"Fired","InventoryClosed","InventoryOpened","Killed","HandleDamage","HandleHeal","Dammaged","Hit","HitPart"};
-};
-```
-to this:
-```
-class addEventHandler {
-	checks[] = {"InventoryClosed","InventoryOpened","Killed","HandleHeal","Dammaged","Hit","HitPart"};
-};
-```
 
 <br/>
 
@@ -136,45 +115,7 @@ _INFISTAR:_
 
 _BATTLEYE:_
 <br/>
-* Open your `scripts.txt` (usually found in "SC\BattlEye\")<br/>
-* Search for the keyword:
-```
-"BIS_fnc_dynamictext"
-```
-* add the following filter to the beginning, right after the keyword, like this:
-```
-7 "BIS_fnc_dynamictext" !="'f00'/> %1</t>",defineInfoMsg],0,1,5,1,0.15,789] spawn BIS_fnc_dynamicText};'"
-```
-* Search for the keyword:
-```
-addEventHandler
-```
-* add the following filter to the beginning, right after the keyword, like this:
-```
-7 addEventHandler !="EH_firedESVP"
-```
-* Search for the keyword:
-```
-removeAllEventHandlers
-```
-* add the following filter to the beginning, right after the keyword, like this:
-```
-7 removeAllEventHandlers !="HandleDamage"
-```
-* Search for the keyword:
-```
-removeEventHandler
-```
-* add the following filter to the beginning, right after the keyword, like this:
-```
-7 removeEventHandler !="EH_firedESVP"
-```
-* Open your `setvariable.txt` (same directory)<br/>
-* Add the following filter to the beginning, like this:
-```
-5 "" !=vehowners
-```
-* Done
+* Check the battleye folder in this package and add the specific filters to your ones
 <br/>
 
 ___
@@ -211,32 +152,25 @@ _Example:_
 * client: `[NAME, COORDS, RADIUS]`
 * server: `[COORDS, RADIUS]`
 <br/>
+- The serverside addon was optional, now you have to use it!
+<br/>
+- Added a second serverside PBO just for enable/disable SPKcode scripts easily.
+<br/>
 
 ___
 <br/>
 
 ######W.I.P:
-- drop-down menu for vehicle owners to give access to specific players
+- support for IgiLoad or other Towing scripts
 <br/>
 
 ___
 <br/>
 
 ######BUGS & ERRORS:
-- No known bugs present so far but if you notice some, please report them to this Git or to the respective forum thread. I will try to fix them asap. Thx
+- Teleporting players produce a serverside rpt entry if using EpochAH (but the function is working well)
+- No other known bugs present so far but if you notice some, please report them to this Git or to the respective forum thread. I will try to fix them asap. Thx
 <br/>
 
 ___
 <br/>
-
-######LIKE MY WORK ?
-- If you think about a donation so I can buy some beers, just message me at `info@sp4rky.de`
-- No have to ofcourse, but I would appreciate it
-<br/>
-
-___
-<br/>
-
-_Enjoy this stuff and have fun!_
-<br/>
-_cheers_
