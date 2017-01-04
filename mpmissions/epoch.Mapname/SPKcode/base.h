@@ -1,0 +1,137 @@
+#define GUI_GRID_X (0)
+#define GUI_GRID_Y (0)
+#define GUI_GRID_W (0.025)
+#define GUI_GRID_H (0.04)
+#define GUI_GRID_WAbs (1)
+#define GUI_GRID_HAbs (1)
+#define ST_LEFT	0x00
+#define ST_RIGHT 0x01
+#define ST_CENTER 0x02
+#define ST_NO_RECT 0x200
+#define LB_TEXTURES 16
+#define ST_PICTURE 48
+
+class SPK_RscListBox {
+	access = 0;
+	arrowEmpty = "#(argb,8,8,3)color(1,1,1,0.95)";
+	arrowFull = "#(argb,8,8,3)color(1,1,1,0.95)";
+	autoScrollDelay = 5;
+	autoScrollRewind = 0;
+	autoScrollSpeed = -1;
+	colorBackground[] = {0,0,0,0};
+	colorDisabled[] = {1,1,1,0.25};
+	colorPicture[] = {1,0.5,1,1};
+	colorPictureDisabled[] = {1,0.2,1,0.25};
+	colorPictureRight[] = {1,0.2,1,0.95};
+	colorPictureRightDisabled[] = {1,0.2,1,0.25};
+	colorPictureRightSelected[] = {1,0.2,1,0.95};
+	colorPictureSelected[] = {1,0.2,1,0.95};
+	colorScrollbar[] = {1,0,0,0};
+	colorSelect2[] = {0,0,0,1};
+	colorSelect2Right[] = {0,0,0,1};
+	colorSelect[] = {0,0,0,1};
+	colorSelectBackground2[] = {1,1,1,0.5};
+	colorSelectBackground[] = {0.95,0.95,0.95,1};
+	colorSelectRight[] = {0,0,0,1};
+	colorShadow[] = {0,0,0,0.5};
+	colorPictudeDisabled[] = {1,1,1,0.25};
+	colorText[] = {1,1,1,0.95};
+	colorTextRight[] = {1,1,1,0.95};
+	pictureColor[] = {1,0.2,1,1};
+	pictureColorSelect[] = {1,0.2,1,1};
+	pictureColorDisabled[] = {1,0.2,1,1};
+	deletable = 0;
+	fade = 0;
+	font = "PuristaMedium";
+	h = 0.3;
+	maxHistoryDelay = 1;
+	period = 1.2;
+	rowHeight = 0;
+	shadow = 0;
+	sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.95)";
+	soundSelect[] = {"\A3\ui_f\data\sound\RscListbox\soundSelect",0.09,1};
+	style = 16;
+	tooltipColorBox[] = {1,1,1,0.95};
+	tooltipColorShade[] = {0,0,0,0.65};
+	tooltipColorText[] = {1,1,1,0.95};
+	type = 5;
+	w = 0.3;
+	x = 0;
+	y = 0;
+	class ListScrollBar {
+		arrowEmpty = "\A3\ui_f\data\gui\cfg\scrollbar\arrowEmpty_ca.paa";
+		arrowFull = "\A3\ui_f\data\gui\cfg\scrollbar\arrowFull_ca.paa";
+		autoScrollDelay = 5;
+		autoScrollEnabled = 1;
+		autoScrollRewind = 0;
+		autoScrollSpeed = -1;
+		border = "\A3\ui_f\data\gui\cfg\scrollbar\border_ca.paa";
+		color[] = {1,1,1,0.95};
+		colorActive[] = {1,1,1,0.95};
+		colorDisabled[] = {1,1,1,0.3};
+		height = 0;
+		scrollSpeed = 0.06;
+		shadow = 0;
+		thumb = "\A3\ui_f\data\gui\cfg\scrollbar\thumb_ca.paa";
+		width = 0;
+	};
+};
+
+class SPK_RscButton {
+   access = 0;
+   borderSize = 0;
+   colorBackground[] = {0,0,0,0.5};
+   colorBackgroundActive[] = {0,0,0,1};
+   colorBackgroundDisabled[] = {0,0,0,0.5};
+   colorBorder[] = {0,0,0,1};
+   colorDisabled[] = {1,1,1,0.25};
+   colorFocused[] = {0,0,0,1};
+   colorShadow[] = {0,0,0,0};
+   colorText[] = {1,1,1,0.95};
+   deletable = 0;
+   fade = 0;
+   font = "PuristaMedium";
+   h = 0.039216;
+   idc = -1;
+   offSetPressedX = 0;
+   offSetPressedY = 0;
+   offsetX = 0;
+   offSetY = 0;
+   shadow = 2;
+   sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.95)";
+   soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
+   soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
+   soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
+   soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
+   style = 2;
+   text = "";
+   type = 1;
+   w = 0;
+   x = 0;
+   y = 0;
+};
+
+class SPK_RscText {
+   access = 0;
+   colorBackground[] = {0,0,0,0};
+   colorShadow[] = {0,0,0,0.5};
+   colorText[] = {1,1,1,0.95};
+   deletable = 0;
+   fade = 0;
+   fixedWidth = 0;
+   font = "PuristaMedium";
+   h = 0.037;
+   idc = -1;
+   lineSpacing = 1;
+   shadow = 0;
+   sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+   style = 0;
+   text = "";
+   tooltipColorBox[] = {1,1,1,0.95};
+   tooltipColorShade[] = {0,0,0,0.65};
+   tooltipColorText[] = {1,1,1,0.95};
+   type = 0;
+   w = 0.3;
+   x = 0;
+   y = 0;
+};
