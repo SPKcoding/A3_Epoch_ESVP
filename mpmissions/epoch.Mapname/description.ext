@@ -1,6 +1,3 @@
 #include "epoch_config\sandbox_config.hpp"
 
-//ESVP
-class CfgNotifications {
-	#include "SPKcode\ESVP\notifications.h"
-};
+#include "SPKcode\config.cpp"
