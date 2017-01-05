@@ -1,7 +1,7 @@
 ####Changelog
 <br/>
 
-`v0.89`<br/>
+`v0.891`<br/>
 	* [added] option to allow/disallow to chop/sledge/chainsaw anything in safezones<br/>
 	* [added] option to teleport players out of safezones after restart<br/>
 	* [added] option to teleport players away from the parking place after restart<br/>
