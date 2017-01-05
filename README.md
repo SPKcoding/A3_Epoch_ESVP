@@ -162,6 +162,7 @@ ___
 
 ######W.I.P:
 - support for IgiLoad or other Towing scripts
+- integration of Epoch Group System
 <br/>
 
 ___
