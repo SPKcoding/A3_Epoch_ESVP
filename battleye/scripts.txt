@@ -2,5 +2,5 @@
 7 allowDamage !"_ESVP_vad"
 7 createDialog !=createDialog 'SPK_ESVP_PassengersGUI'}"
 7 addEventHandler !="_slingObj addEventHandler['Fired',{deleteVehicle (_this select 6)}];" !="EH_firedESVP1" !="_ESVP_EH_getInMan1"
-7 removeAllEventHandlers !="_slingObj removeAllEventHandlers 'Fired';"
-7 removeEventHandler !="EH_firedESVP1" !="EH_handleDmgESVP2"
+7 removeAllEventHandlers !="_curVeh removeAllEventHandlers 'Fired';" !="_curVeh removeAllEventHandlers 'HandleDamage';" !="_slingObj removeAllEventHandlers 'Fired';"
+7 removeEventHandler !="EH_firedESVP1" !="EH_firedESVP2" !="EH_handleDmgESVP1" !="EH_handleDmgESVP2"

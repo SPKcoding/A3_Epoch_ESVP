@@ -149,8 +149,9 @@
 				waitUntil{if(isESVP)then{uiSleep 1.2};(!isESVP && (vehicle player != player))||(!isESVP && (vehicle player == player))||(isESVP && (vehicle player == player))|| !alive player};
 				if(!alive player)exitWith{player allowDamage true;player removeEventHandler['Fired',EH_firedESVP1];player removeEventHandler['HandleDamage',EH_handleDmgESVP1]};
 				if(!isESVP && (vehicle player != player))exitWith{
-					vehicle player removeEventHandler['Fired',EH_firedESVP2];
-					vehicle player removeEventHandler['HandleDamage',EH_handleDmgESVP2];
+					private _curVeh = vehicle player;
+					_curVeh removeAllEventHandlers 'Fired';
+					_curVeh removeAllEventHandlers 'HandleDamage';
 					if(ESVP_useVehProt)then{call remProtVeh};
 					if(!isNil'plrProtAdded')then{call remProtPlr};
 					[] spawn codeFailsafe;

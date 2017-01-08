@@ -1,6 +1,10 @@
 ####Changelog
 <br/>
 
+`v0.893`<br/>
+	* [fixed] projectiles of armed vehicles are still getting deleted after leaving safezones<br/>
+	* [updated] BE filters (scripts.txt)<br/>
+<br/>
 `v0.891`<br/>
 	* [fixed] small syntax error in the FSM<br/>
 <br/>
