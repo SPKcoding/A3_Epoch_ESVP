@@ -1,6 +1,6 @@
 ####Changelog
 <br/>
-
+ 
 `v0.893`<br/>
 	* [fixed] projectiles of armed vehicles are still getting deleted after leaving safezones<br/>
 	* [updated] BE filters (scripts.txt)<br/>
