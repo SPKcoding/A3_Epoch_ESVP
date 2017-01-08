@@ -34,7 +34,7 @@ ___
 	* "Clear" button to remove the added players
 * (optional) restrict access to driver seat for primary vehicle owner
 * slingload check for bought vehicles (you can not steal cars or ships)
-* (optional) info messages for prohibited lifting
+* (optional) info messages for prohibited lifting 
 * (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
 * (optional) Allow/disallow to chop/sledge/chainsaw anything in safezones
 * If using the serverside "vehicle teleporting WITHOUT Parking Place" - function: 
