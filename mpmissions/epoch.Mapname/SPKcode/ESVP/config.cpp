@@ -2,7 +2,7 @@
 	Title:				SPK_ESVP
 	Author:				Sp4rkY [https://github.com/SPKcoding]
 	Description:		Extended Safezones with Vehicle Protection for Arma 3 Epoch
-	Version:			0.894
+	Version:			0.915
 	Required:			Arma3 1.66+ / Epoch 0.4+
 	File:				config.cpp (clientside config)
 ____________________________________________________________________________________________________________________________________________________________________________________________________________________*/
@@ -17,6 +17,7 @@ class CfgESVP {
 		};
 	};
 	class options {
+		_useMarkers			= true;												/* Enable|Disable markers for the safezones at the map 																				*/
 		_showNotes 			= true;												/* Show notifications (CfgNotifications) for entering/leaving the safezones															*/
 		_showChatMsg 		= true;												/* Show systemChat messages for entering/leaving the safezones																		*/
 		_useInfoMsg 		= true;												/* Show info messages while entering a safezone (true/false) 																		*/
@@ -31,6 +32,18 @@ class CfgESVP {
 		_minRangePlrTP		= 250;												/* Minimum Range in meters the player is teleported to (should be minimum the same as the highest safezone radius) 					*/
 		_maxRangePlrTP		= 350;												/* Maximum Range in meters the player is teleported to (have to be higher than "_minRangePlrTP")									*/
 		_allowMelee			= false;											/* Enable|Disable melee weapons in safezones (hatchet, sledgehammer, chainsaw) [requires changes in EPOCH_fnc_playerFired.sqf]		*/
+	};
+	class markers {
+		_mainColor			= "ColorGreen";										/* Color of the primary marker (Example: "ColorGreen", "ColorRed", "ColorBlue"...) 													*/
+		_brush				= true;												/* Enable|Disable marker brush [if '_useMarkers=true'] 																				*/
+		_brushStyle			= "Grid";											/* Set the style of the brush (examples: "Grid", "SolidBorder", "Cross") 															*/
+		_useTextMarker		= true;												/* Enable|Disable text marker 																										*/
+		_textColor			= "ColorRed";										/* Color of the text marker (Example: "ColorGreen", "ColorRed", "ColorBlue"...) [if '_useTextMarker=true']							*/
+		_prefix				= false;											/* Enable|Disable prefix name of the markers 																						*/
+		_prefixName			= "Safezone";										/* Define the prefix name here (markertext will be the prefix + ID of _defineSafezones: 'Safezone WEST', 'Safezone CENTER'...) 		*/
+		_useUniqueName		= false;											/* If set to true, you will have a unique name for all markers (overrides '_prefix' & 'ID') [if '_useTextMarker=true']				*/
+		_uniqueName			= "Safe area";										/* Define the markertext here [if '_useUniqueName=true'] 																			*/
+		_textMrkType		= "mil_dot";										/* Type of the icon of the text marker (Example: "_mil_dot", "_mil_warning", "mil_join", "mil_circle"...) 							*/
 	};
 	class messages {
 		class notes {															/* If (_showNotes=true) customise your notification messages below. (between the quotes "")											*/
