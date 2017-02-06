@@ -1,6 +1,6 @@
 class SPKcode_client {
 	tag = "SPK";
-	
+
 	//ESVP
 	class SPK_ESVP {
 		file = "SPKcode\ESVP\ctrl";
@@ -9,10 +9,7 @@ class SPKcode_client {
 		class ESVP_giveAccess {};
 		class ESVP_clearReg {};
 		class ESVP_checkCrew {};
-		class init {
-			file = "SPKcode\ESVP\ESVP_init.sqf";
-			postInit=1;
-		};
+		class markers {file = "SPKcode\ESVP\setMarkers.sqf";postInit=1;};
+		class init {file = "SPKcode\ESVP\init.sqf";postInit=1;};
 	};
-	
 };
