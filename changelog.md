@@ -1,6 +1,9 @@
 ####Changelog
 <br/>
 
+`v0.915`<br/>
+	* [added] feature to set map markers directly from this script (no need to define them anywhere else now)<br/>
+<br/>
 `v0.894`<br/>
 	* [fixed] missing activation of ppEffects while gui is open<br/>
 <br/>
