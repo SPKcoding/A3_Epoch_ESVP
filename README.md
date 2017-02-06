@@ -3,7 +3,7 @@
 - Title: `SPK_ESVP`
 - Author: `Sp4rkY` [Link](https://github.com/SPKcoding)
 - Description: `Extended Safezones with Vehicle Protection for Arma 3 Epoch`
-- Version: `0.894`
+- Version: `0.915`
 - Required: `Arma 3 1.66+ / Epoch 0.4+`
 - Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| CH!LL3R (Thx for thoughts & testing!)`<br/>
 
@@ -37,6 +37,7 @@ ___
 * (optional) info messages for prohibited lifting 
 * (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
 * (optional) Allow/disallow to chop/sledge/chainsaw anything in safezones
+* (optional) Built-in map marker feature with most needed options
 * If using the serverside "vehicle teleporting WITHOUT Parking Place" - function: 
 	* the vehicles get teleported to a random position within the given radius out of the safezones
 * If using the serverside "vehicle teleporting WITH Parking Place" - function, it will works like this:
