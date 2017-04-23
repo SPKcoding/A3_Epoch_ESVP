@@ -1,6 +1,9 @@
 ####Changelog
 <br/>
 
+`v0.916`<br/>
+	* [fixed] added missing battleye filters for the map markers<br/>
+<br/>
 `v0.915`<br/>
 	* [added] feature to set map markers directly from this script (no need to define them anywhere else now)<br/>
 <br/>
