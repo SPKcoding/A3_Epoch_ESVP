@@ -12,48 +12,48 @@ ___
 ######FEATURES:<br/>
 - Fully customizable<br/>
 - Works with all maps<br/>
-- Works for players and vehicles
-- No more `"ProtectionZone_Invisible_F"` is needed (usually found in map config in a3_epoch_server_settings.pbo)
-- Fired bullets will automatically be deleted in safezones
-- (optional) Teleport players out of safezones after restart
-- (optional) Teleport players away from the parking place (if used) after restart
-- Protection from idiots trying to drive over other players (including traders)
-- Check vehicle ownership of bought vehicles
-- (optional) Teleport vehicles out of safezones at server restart to:
-	* (optional) a given distance from the respective safezone
-	* (optional) a static parking place (you can use your own map addition and define as many parking lots you want)
-* (optional) Restricted vehicle´s access in safezones (only the owner(s) can enter the vehicle)
-* (optional) Restricted vehicle´s gear-access in safezones (only the owner(s) can access the vehicle´s inventory)
-* (optional) Protection for lifted vehicle´s
-	* If using this feature, there will be also a check for the owner, so stealing is not possible
-* (optional) Unlock teleported vehicles
-* 2 ways of info messages (depends on if vehicle protection is used or not)
-* (optional) Vehicle Access Menu:
-	* "Refresh" button to update the player-list while menu is open
-	* "Registered" listing to see which players are added to your vehicle
-	* "Clear" button to remove the added players
-* (optional) restrict access to driver seat for primary vehicle owner
-* slingload check for bought vehicles (you can not steal cars or ships)
-* (optional) info messages for prohibited lifting 
-* (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones
-* (optional) Allow/disallow to chop/sledge/chainsaw anything in safezones
-* (optional) Built-in map marker feature with most needed options
-* If using the serverside "vehicle teleporting WITHOUT Parking Place" - function: 
-	* the vehicles get teleported to a random position within the given radius out of the safezones
-* If using the serverside "vehicle teleporting WITH Parking Place" - function, it will works like this:
-	* server restarts, vehicles in safezones will be teleported to a parking place
-	* vehicles which are present at the parking place are getting teleported to a random location on the map, new vehicles (in safezones) are ported to the parking place
-* If the respective safezone contains water, ships are treated like this:
-	* if ships are located at water surface, they gets teleported close to the safezone´s shore at given radius
-	* if ships are located at terrain surface because of lifting or simliar, they gets ported random at the maps shore
-* If not using "vehicle teleporting" - function, remaining vehicles in safezones are indestructible after restart
-* Debug option for better determine errors (client & server)
+- Works for players and vehicles<br/>
+- No more `"ProtectionZone_Invisible_F"` is needed (usually found in map config in a3_epoch_server_settings.pbo)<br/>
+- Fired bullets will automatically be deleted in safezones<br/>
+- (optional) Teleport players out of safezones after restart<br/>
+- (optional) Teleport players away from the parking place (if used) after restart<br/>
+- Protection from idiots trying to drive over other players (including traders)<br/>
+- Check vehicle ownership of bought vehicles<br/>
+- (optional) Teleport vehicles out of safezones at server restart to:<br/>
+	* (optional) a given distance from the respective safezone<br/>
+	* (optional) a static parking place (you can use your own map addition and define as many parking lots you want)<br/>
+* (optional) Restricted vehicle´s access in safezones (only the owner(s) can enter the vehicle)<br/>
+* (optional) Restricted vehicle´s gear-access in safezones (only the owner(s) can access the vehicle´s inventory)<br/>
+* (optional) Protection for lifted vehicle´s<br/>
+	* If using this feature, there will be also a check for the owner, so stealing is not possible<br/>
+* (optional) Unlock teleported vehicles<br/>
+* 2 ways of info messages (depends on if vehicle protection is used or not)<br/>
+* (optional) Vehicle Access Menu:<br/>
+	* "Refresh" button to update the player-list while menu is open<br/>
+	* "Registered" listing to see which players are added to your vehicle<br/>
+	* "Clear" button to remove the added players<br/>
+* (optional) restrict access to driver seat for primary vehicle owner<br/>
+* slingload check for bought vehicles (you can not steal cars or ships)<br/>
+* (optional) info messages for prohibited lifting<br/>
+* (optional) Prevent spawning of antagonists (UAV, Sappers, Snakes, Cultists) in safezones<br/>
+* (optional) Allow/disallow to chop/sledge/chainsaw anything in safezones<br/>
+* (optional) Built-in map marker feature with most needed options<br/>
+* If using the serverside "vehicle teleporting WITHOUT Parking Place" - function:<br/>
+	* the vehicles get teleported to a random position within the given radius out of the safezones<br/>
+* If using the serverside "vehicle teleporting WITH Parking Place" - function, it will works like this:<br/>
+	* server restarts, vehicles in safezones will be teleported to a parking place<br/>
+	* vehicles which are present at the parking place are getting teleported to a random location on the map, new vehicles (in safezones) are ported to the parking place<br/>
+* If the respective safezone contains water, ships are treated like this:<br/>
+	* if ships are located at water surface, they gets teleported close to the safezone´s shore at given radius<br/>
+	* if ships are located at terrain surface because of lifting or simliar, they gets ported random at the maps shore<br/>
+* If not using "vehicle teleporting" - function, remaining vehicles in safezones are indestructible after restart<br/>
+* Debug option for better determine errors (client & server)<br/>
 <br/>
 
 ___
 <br/>
 
-######INSTALL INSTRUCTIONS:
+######INSTALL INSTRUCTIONS:<br/>
 `Assumed you know how to use a Pbo-Manager and Notepad++ or similar tools. Otherwise click the following link:`<br/>
 [Arma: Community Tools](https://community.bistudio.com/wiki/ArmA:_Community_Tools)
 <br/>
