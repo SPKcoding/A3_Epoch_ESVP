@@ -1,6 +1,8 @@
 7 "BIS_fnc_dynamictext" !="'f00'/> %1</t>",defineInfoMsg],0,1,5,1,0.15,789] spawn BIS_fnc_dynamicText};'"
 7 allowDamage !"_ESVP_vad"
 7 createDialog !=createDialog 'SPK_ESVP_PassengersGUI'}"
+7 setMarker !="if(getText(missionConfigFile >> 'CfgESVP' >> 'options' >> '_useMarkers') isEqualTo str(true))then{"
+7 createMarker !="_mrk1 = createMarker [format['%1__%2_1',(_zones select _z)select 0,(_zones sel"
 7 addEventHandler !="_slingObj addEventHandler['Fired',{deleteVehicle (_this select 6)}];" !="EH_firedESVP1" !="_ESVP_EH_getInMan1"
 7 removeAllEventHandlers !="_curVeh removeAllEventHandlers 'Fired';" !="_curVeh removeAllEventHandlers 'HandleDamage';" !="_slingObj removeAllEventHandlers 'Fired';"
 7 removeEventHandler !="EH_firedESVP1" !="EH_firedESVP2" !="EH_handleDmgESVP1" !="EH_handleDmgESVP2"
