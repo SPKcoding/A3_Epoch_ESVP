@@ -3,7 +3,7 @@
 - Title: `SPK_ESVP`
 - Author: `Sp4rkY` [Link](https://github.com/SPKcoding)
 - Description: `Extended Safezones with Vehicle Protection for Arma 3 Epoch`
-- Version: `0.915`
+- Version: `0.916`
 - Required: `Arma 3 1.66+ / Epoch 0.4+`
 - Credits:<br/>`IT07 (Thx for many brain)` [Link](https://github.com/IT07)<br/>`|V.I.P.| CH!LL3R (Thx for thoughts & testing!)`<br/>
 
