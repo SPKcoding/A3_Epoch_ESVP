@@ -9,9 +9,9 @@
 
 ___
 <br/>
-######FEATURES:
-- Fully customizable
-- Works with all maps
+######FEATURES:<br/>
+- Fully customizable<br/>
+- Works with all maps<br/>
 - Works for players and vehicles
 - No more `"ProtectionZone_Invisible_F"` is needed (usually found in map config in a3_epoch_server_settings.pbo)
 - Fired bullets will automatically be deleted in safezones
