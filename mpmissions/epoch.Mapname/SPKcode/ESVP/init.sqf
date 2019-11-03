@@ -63,11 +63,11 @@
 			};
 			loadedAccessCheckESVP = true;
 			while{true}do{
-				waitUntil{if({if(cursorTarget isKindOf _x)exitWith{1}}count['Car','Air','Motorcycle','Tank','Ship'] == 0)then{uiSleep .2;false};if(({if(cursorTarget isKindOf _x)exitWith{1}}count['Car','Air','Motorcycle','Tank','Ship'] == 1) || !isESVP)then{true}};
+				waituntil {{cursorTarget isKindOf _x} count ['Car','Air','Motorcycle','Tank','Ship'] > 0 || !isESVP};
 				if(!isESVP)exitWith{loadedAccessCheckESVP = false};
 				_var = cursorTarget getVariable['vehOwners',nil];
 				if(!isNil'_var')then{if !(getPlayerUID player in _var)then{cursorTarget lock true;uiSleep .1;cursorTarget lock true;[] spawn accessCheckEject}};
-				waitUntil{if(locked cursorTarget isEqualTo 0)then[{uiSleep .2;false},{if((locked cursorTarget isEqualTo 1) || !isESVP)then{true}}]};
+				waitUntil {(locked cursorTarget isEqualTo 1) || !isESVP};
 				if(!isESVP)exitWith{loadedAccessCheckESVP = false}
 			}
 		";
