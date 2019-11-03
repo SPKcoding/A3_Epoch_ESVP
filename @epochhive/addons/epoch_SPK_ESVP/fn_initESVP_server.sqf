@@ -1,4 +1,4 @@
-waitUntil{missionNamespace getVariable 'EPOCH_SERVER_READY'};
+waitUntil{missionNamespace getVariable  ['EPOCH_SERVER_READY',false]};
 diag_log text '(SPK-DEBUG): loading ESVP serverside addon...';
 _ESVP_server_debugMode = getText(configFile >> 'CfgESVP' >> '_debugLog') isEqualTo str(true);
 _coords = getArray(configFile >> 'CfgESVP' >> '_safezoneCoords');
